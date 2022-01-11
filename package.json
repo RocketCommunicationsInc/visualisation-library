@@ -1,0 +1,53 @@
+{
+    "name": "visualisation-library",
+    "version": "0.0.1",
+    "description": "Stencil Component Starter",
+    "main": "dist/index.cjs.js",
+    "module": "dist/index.js",
+    "es2015": "dist/esm/index.mjs",
+    "es2017": "dist/esm/index.mjs",
+    "types": "dist/types/components.d.ts",
+    "collection": "dist/collection/collection-manifest.json",
+    "collection:main": "dist/collection/index.js",
+    "unpkg": "dist/visualisation-library/visualisation-library.esm.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ionic-team/stencil-component-starter.git"
+    },
+    "files": [
+        "dist/",
+        "loader/"
+    ],
+    "scripts": {
+        "build": "stencil build --docs",
+        "test": "stencil test --spec --e2e",
+        "test.watch": "stencil test --spec --e2e --watchAll",
+        "generate": "stencil generate",
+        "storybook": "start-storybook -p 6006",
+        "build-storybook": "build-storybook",
+        "start.stencil": "stencil build --dev --watch --serve",
+        "start.storybook": "start-storybook -p 6006 -s ./dist",
+        "start": "concurrently npm:start.stencil npm:start.storybook"
+    },
+    "dependencies": {
+        "@stencil/core": "^2.11.0"
+    },
+    "devDependencies": {
+        "@babel/core": "~7.16.7",
+        "@stencil/sass": "~1.5.2",
+        "@storybook/addon-a11y": "~6.4.10",
+        "@storybook/addon-actions": "~6.4.10",
+        "@storybook/addon-essentials": "~6.4.10",
+        "@storybook/addon-links": "~6.4.10",
+        "@storybook/web-components": "~6.4.10",
+        "@types/jest": "^26.0.24",
+        "babel-loader": "~8.2.3",
+        "concurrently": "~7.0.0",
+        "jest": "^26.6.3",
+        "jest-cli": "^26.6.3",
+        "lit": "~2.1.1",
+        "puppeteer": "^10.0.0",
+        "storybook-addon-themes": "~6.1.0"
+    },
+    "license": "MIT"
+}
