@@ -1,0 +1,23 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { data } from '../stencil-asset/data/data.json';
+import { html, render } from 'lit-html';
+
+<Meta title="Components/My Pie Chart" component="my-pie-chart" />
+
+# My Graph
+
+Example Doc
+
+export const Default = args => {
+  return html`<div style="padding: 5%; display: flex; justify-content: center;">
+    <my-pie-chart"></my-pie-chart>
+  </div>`;
+};
+
+<Canvas>
+  <Story
+    name="Default"
+  >
+    {Default.bind()}
+  </Story>
+</Canvas>
