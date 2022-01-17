@@ -11,6 +11,18 @@ export namespace Components {
         "name": string;
         "points": Point[];
     }
+    interface MyPieChart {
+        "borderSize": number;
+        "data": {
+        id: number
+        percent: number
+        color: string
+        label?: string
+    }[];
+        "radius": number;
+        "type": 'pie' | 'donut';
+        "viewBox": number;
+    }
 }
 declare global {
     interface HTMLMyGraphElement extends Components.MyGraph, HTMLStencilElement {
@@ -19,8 +31,15 @@ declare global {
         prototype: HTMLMyGraphElement;
         new (): HTMLMyGraphElement;
     };
+    interface HTMLMyPieChartElement extends Components.MyPieChart, HTMLStencilElement {
+    }
+    var HTMLMyPieChartElement: {
+        prototype: HTMLMyPieChartElement;
+        new (): HTMLMyPieChartElement;
+    };
     interface HTMLElementTagNameMap {
         "my-graph": HTMLMyGraphElement;
+        "my-pie-chart": HTMLMyPieChartElement;
     }
 }
 declare namespace LocalJSX {
@@ -28,8 +47,21 @@ declare namespace LocalJSX {
         "name"?: string;
         "points"?: Point[];
     }
+    interface MyPieChart {
+        "borderSize"?: number;
+        "data"?: {
+        id: number
+        percent: number
+        color: string
+        label?: string
+    }[];
+        "radius"?: number;
+        "type"?: 'pie' | 'donut';
+        "viewBox"?: number;
+    }
     interface IntrinsicElements {
         "my-graph": MyGraph;
+        "my-pie-chart": MyPieChart;
     }
 }
 export { LocalJSX as JSX };
@@ -37,6 +69,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-graph": LocalJSX.MyGraph & JSXBase.HTMLAttributes<HTMLMyGraphElement>;
+            "my-pie-chart": LocalJSX.MyPieChart & JSXBase.HTMLAttributes<HTMLMyPieChartElement>;
         }
     }
 }
