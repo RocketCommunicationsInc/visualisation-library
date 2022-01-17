@@ -1,22 +1,52 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { html, render } from 'lit-html';
 
-<Meta title="Components/My Pie Chart" component="my-pie-chart" />
+<Meta title="Pie" component="my-pie-chart" />
 
-# My Graph
+# My Pie
 
 Example Doc
 
-export const Default = args => {
-  return html`<div style="padding: 5%; display: flex; justify-content: center; max-width:300px; max-height:300px;">
-    <my-pie-chart></my-pie-chart>
+export const Pie = args => {
+  return html`<div id="pie" style="padding: 1%; display: flex; justify-content: center; max-width:300px; max-height:300px;">
+    <my-pie-chart
+      .data=${args.data}
+      .radius=${args.radius}
+      .viewBox=${args.viewBox}
+      .borderSize=${args.borderSize}
+    ></my-pie-chart>
   </div>`;
 };
 
 <Canvas>
   <Story
-    name="Default"
+    name="Pie"
+    args={{
+      data: [
+        {
+            id: 1,
+            percent: 35,
+            color: 'DarkSeaGreen',
+            label: 'Slice 1',
+        },
+        {
+            id: 2,
+            percent: 15,
+            color: 'DarkOrchid',
+            label: 'Slice 2',
+        },
+        {
+            id: 3,
+            percent: 22,
+            color: 'DodgerBlue',
+            label: 'Slice 3',
+        },
+    ],
+      radius: 50,
+      viewBox: 100,
+      borderSize: 20
+    }}
   >
-    {Default.bind()}
+    {Pie.bind()}
   </Story>
 </Canvas>

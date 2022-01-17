@@ -2,26 +2,25 @@ import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { data } from '../stencil-asset/data/data.json';
 import { html, render } from 'lit-html';
 
-<Meta title="Components/My Graph" component="my-graph" />
+<Meta title="Graph" component="my-graph" />
 
 # My Graph
 
 Example Doc
 
-export const Default = args => {
-  return html`<div style="padding: 5%; display: flex; justify-content: center;>
-    <my-graph .points="${args.points}" .random="${args.name}"></my-graph>
+export const Graph = args => {
+  return html`<div id="graph" style="padding: 5%; display: flex; justify-content: center;">
+    <my-graph .points="${args.points}"></my-graph>
   </div>`;
 };
 
 <Canvas>
   <Story
-    name="Default"
+    name="Graph"
     args={{
-      points: data,
-      random: 'Hello',
+      points: data
     }}
   >
-    {Default.bind()}
+    {Graph.bind()}
   </Story>
 </Canvas>

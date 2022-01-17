@@ -7,8 +7,7 @@ import { Point, Bounds } from '../../models/graph.model'
     shadow: true,
 })
 export class MyGraph {
-    @Prop() points: Point[] = []
-    @Prop() name: string = ''
+    @Prop() points: Point[]
 
     @State() container = {
         width: 1000,
@@ -23,7 +22,7 @@ export class MyGraph {
     }
 
     constructor() {
-        console.log('points', this.points)
+        console.log('graph')
         this._pointsChanged(this.points)
     }
 
@@ -193,6 +192,7 @@ export class MyGraph {
     }
 
     render() {
+        console.log('graph render')
         return (
             <svg
                 viewBox={`0 0 ${this.container.width + 15} ${

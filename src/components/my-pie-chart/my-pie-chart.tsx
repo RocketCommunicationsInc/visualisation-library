@@ -18,8 +18,6 @@ interface DonutSliceWithCommands extends DonutSlice {
     shadow: true,
 })
 export class MyPieChart {
-    @Prop() type: 'pie' | 'donut' = 'pie'
-
     @State() container = {
         width: 600,
         height: 600,
@@ -30,30 +28,15 @@ export class MyPieChart {
         percent: number
         color: string
         label?: string
-    }[] = [
-        {
-            id: 1,
-            percent: 35,
-            color: 'DarkSeaGreen',
-            label: 'Slice 1',
-        },
-        {
-            id: 2,
-            percent: 15,
-            color: 'DarkOrchid',
-            label: 'Slice 2',
-        },
-        {
-            id: 3,
-            percent: 22,
-            color: 'DodgerBlue',
-            label: 'Slice 3',
-        },
-    ]
+    }[]
 
-    @Prop() radius: number = 50
-    @Prop() viewBox: number = 100
-    @Prop() borderSize: number = 50
+    @Prop() radius: number
+    @Prop() viewBox: number
+    @Prop() borderSize: number
+
+    constructor() {
+        console.log('pie chart')
+    }
 
     private __getSlicesWithCommandsAndOffsets(
         donutSlices: DonutSlice[],

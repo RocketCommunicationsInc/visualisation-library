@@ -8,7 +8,6 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Point } from "./models/graph.model";
 export namespace Components {
     interface MyGraph {
-        "name": string;
         "points": Point[];
     }
     interface MyPieChart {
@@ -20,7 +19,6 @@ export namespace Components {
         label?: string
     }[];
         "radius": number;
-        "type": 'pie' | 'donut';
         "viewBox": number;
     }
 }
@@ -44,7 +42,6 @@ declare global {
 }
 declare namespace LocalJSX {
     interface MyGraph {
-        "name"?: string;
         "points"?: Point[];
     }
     interface MyPieChart {
@@ -56,7 +53,6 @@ declare namespace LocalJSX {
         label?: string
     }[];
         "radius"?: number;
-        "type"?: 'pie' | 'donut';
         "viewBox"?: number;
     }
     interface IntrinsicElements {
